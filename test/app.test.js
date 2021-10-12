@@ -1,5 +1,28 @@
 const Session = require('../classes/Session');
 const globalData = [['ZEM', 'Eric', '124kg', 2015], ['PEN', 'Paul', '14kg', 2020], [null, null, null, null], ['PAN', 'Pierre', '144kg', 2000]];
+describe('reformatParticipant', () => {
+    it('should reformat participant', () => {
+        const result = [{
+            lastname: 'ZEM',
+            firstname: 'Eric',
+            weight: 124,
+            year: 2015
+        }, {
+            lastname: 'PEN',
+            firstname: 'Paul',
+            weight: 14,
+            year: 2020
+        },
+            undefined, {
+                lastname: 'PAN',
+                firstname: 'Pierre',
+                weight: 144,
+                year: 2000
+            }
+        ]
+        expect(reformatParticipant(globalData)).toEqual(result);
+    });
+})
 describe('Session', () => {
     it('should init a session', () => {
         const result = {
