@@ -56,5 +56,27 @@ function sortTeams(participants) {
     })
     return teams;
 }
+
+function deleteFirstColumn(list) {
+    return list.filter((participant, index) => {
+        if (index > 0) {
+            return participant
+        }
+    });
 }
+
+function init() {
+    importData('./assets/Exemple1.xlsx').then(participants => {
+        const session = createSession(deleteFirstColumn(participants));
+        session.matchTeams();
+
+    })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+init()
+
+module.exports = {importData, sortTeams, reformatParticipant, createSession, deleteFirstColumn};
 
