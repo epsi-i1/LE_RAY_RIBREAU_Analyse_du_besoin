@@ -23,6 +23,35 @@ describe('reformatParticipant', () => {
         expect(reformatParticipant(globalData)).toEqual(result);
     });
 })
+
+describe('sortTeams', () => {
+    it('should sort teams', () => {
+        const result = [{
+            session: {},
+            participants: [{
+                "firstname": "Eric",
+                "lastname": "ZEM",
+                "weight": 124,
+                "year": 2015,
+            }, {
+                "firstname": "Paul",
+                "lastname": "PEN",
+                "weight": 14,
+                "year": 2020,
+            }],
+            index: 2
+        }, {
+            session: {}, participants: [{
+                "firstname": "Pierre",
+                "lastname": "PAN",
+                "weight": 144,
+                "year": 2000,
+            }], index: 3
+        }]
+        expect(sortTeams(reformatParticipant(globalData))).toEqual(result);
+    });
+})
+
 describe('Session', () => {
     it('should init a session', () => {
         const result = {
