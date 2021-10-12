@@ -1,5 +1,18 @@
 const Session = require('../classes/Session');
+const {reformatParticipant, sortTeams, importData, createSession, deleteFirstColumn} = require("../index");
+
 const globalData = [['ZEM', 'Eric', '124kg', 2015], ['PEN', 'Paul', '14kg', 2020], [null, null, null, null], ['PAN', 'Pierre', '144kg', 2000]];
+
+describe('import', () => {
+    it('should import data form excel', () => {
+        const data = ['Nom', 'Prénom', 'Poids', 'Année adhésion'];
+        importData('./assets/Exemple1.xlsx').then(excel => {
+            const name_column = excel[0];
+            expect(name_column).toStrictEqual(data);
+        });
+    });
+})
+
 describe('reformatParticipant', () => {
     it('should reformat participant', () => {
         const result = [{
