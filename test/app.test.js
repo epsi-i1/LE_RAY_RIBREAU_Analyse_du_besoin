@@ -21,4 +21,11 @@ describe('Session', () => {
         expect(createSession(globalData)).toEqual(result);
     });
 
+    it('should have atleast two teams in session', () => {
+        const participants = [['ZEM', 'Eric', '124kg', 2005], ['MEZ', 'Paul', '124kg', 2015], [null, null, null, null], ['ZEM', 'Eric', '84kg', 2015], ['NEP', 'Marine', '104kg', 2012]]
+        const participantsFormatted = reformatParticipant(participants);
+        const teams = sortTeams(participantsFormatted);
+        const session = new Session(teams);
+        expect(session.teams.length).toBeGreaterThanOrEqual(2);
+    });
 })
