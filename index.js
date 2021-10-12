@@ -1,5 +1,8 @@
+const xlsxFile = require('read-excel-file/node');
 const moment = require('moment');
 const Session = require('./classes/Session');
+const Team = require('./classes/Team');
+const Participant = require('./classes/Participant');
 
 /**
  * @param {Array} data
@@ -25,6 +28,12 @@ function createSession(participants) {
     return new Session(teams);
 }
 
+/**
+ * @param {String} filePath
+ * @returns {Array}
+ */
+async function importData(filePath) {
+    return xlsxFile(filePath);
 }
 
 /**
