@@ -1,0 +1,28 @@
+{
+  "name": "le_ray_ribreau_analyse_du_besoin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "serve": "nodemon index.js",
+    "start": "node index.js",
+    "test": "jest",
+    "test:dev": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/epsi-i1/Analyse-du-Besoin.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/epsi-i1/Analyse-du-Besoin/issues"
+  },
+  "homepage": "https://github.com/epsi-i1/Analyse-du-Besoin#readme",
+  "dependencies": {
+    "jest": "^27.2.5",
+    "moment": "^2.29.1",
+    "nodemon": "^2.0.13",
+    "read-excel-file": "^5.2.13"
+  }
+}
